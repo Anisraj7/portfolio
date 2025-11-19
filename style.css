@@ -1,0 +1,841 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+html{
+    font-size: 63.5%;
+    overflow: auto;
+}
+
+body{
+    background: white;
+    color: black;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5%;
+    background: yellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.header.sticky{
+    border-bottom: .1rem solid rgba(0,0,0, .2);
+}
+
+.logo{
+    font-size: 2rem;
+    margin-left: 20px;
+    color: black;
+    font-weight: 600;
+    cursor: default;
+    text-align: left;
+    background: linear-gradient(to top, green, blue );
+    background-clip: text;
+    color: transparent;
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.navbar{
+    transform: translateX(100%);
+    opacity: 0;
+    animation: slideFromRight 2s ease-out forwards;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.navbar a{
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: black;
+    margin-left: 4rem;
+    transition: .3s;
+    text-transform: capitalize;
+    
+}
+
+#atom{
+    animation: spin 2s linear infinite,
+                Colorcy 5s linear infinite;
+}
+
+@keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+.header a:hover,
+.navbar a:hover,
+.navbar a.active:hover{ 
+    animation: Colorcy 3s linear infinite;
+}
+
+@keyframes Colorcy {
+    0%   { color: #ff0000; }
+    25%  { color: #6e056e; }
+    50%  { color: #0000ff; }
+    75%  { color: #ff9900; }
+    100% { color: #ff0000; }
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color: black;
+    display: none;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-pic img{
+    width: 40vw;
+    border-radius: 50px;
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2.4rem);
+    }
+    100% {
+            transform: translateY(0);
+    }  
+}
+
+.home-content h1{
+    font-size: 3.2rem;
+    font-weight: 700;
+
+}
+
+.home-content h1:nth-of-type(2){
+    margin-bottom: 5rem;
+
+}
+
+span{
+    color: blue; 
+}
+
+.home-content h4{
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(to right, blue, red, white);
+    background-clip: text;
+    color: transparent;
+
+}
+
+.home-content p{
+    font-size: 2rem;
+
+}
+
+.social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 1vh solid hotpink;
+    border-radius: 50%;
+    font-size: 2em;
+    color: black;
+    margin: 2rem 3rem 4rem 0;
+    transition: 2s;
+
+}
+.social-media a:hover{
+    background: aquamarine;
+    color: purple;
+    box-shadow: 0 0 1rem red;
+    transition: 1s;
+}
+
+.button{
+    display: inline-block;
+    justify-content: center;
+    border-radius: 3rem;
+    background-color: tomato;
+    box-shadow: 0 0 1rem brown;
+    font-size: 1.3rem;
+    color: white;
+    transition: 2s;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    padding: 1rem 1rem;
+}
+
+.button i{
+    display: none;
+}
+
+.button:hover{
+    box-shadow: goldenrod;
+    border-radius: 2rem ;
+    background-color: sienna;
+}
+
+.button:hover i{
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    align-items: top;
+    justify-content: space-evenly;
+}
+
+/* ===== Background Video Section ===== */
+.client {
+    position: relative;
+    width: 100%;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+/* Background video */
+.client video.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    /* filter: brightness(40%); darken background for clarity */
+}
+
+/* Optional dark overlay */
+/* .client::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: -0.5;
+} */
+
+/* ===== Your Heading (same as before) ===== */
+.client h1 {
+    text-align: center;
+    margin: 30px;
+    background: linear-gradient(to bottom right, #df9e54, #e61adb);
+    background-clip: text;
+    /* -webkit-background-clip: text; For Safari/Chrome */
+    color: transparent;
+    font-size: 2.5em;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Logo Section (same) ===== */
+
+.mylogos {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    z-index: 1; /* Keep logos above video */
+}
+
+.logo-track {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: max-content;
+    animation: slide 12s linear infinite;
+}
+
+.logo-track img {
+    height: 80px;
+    width: auto;
+}
+
+/* Slide animation */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.mylogos p {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 2rem auto;
+    padding: 20px;
+    color: #fff;
+    line-height: 1.7;
+    letter-spacing: 1px;
+
+    /* optional text indent */
+    text-indent: 0; /* you can change this */
+
+    /* glow effect */
+    text-shadow: 
+        0 0 10px #ff00aa,
+        0 0 20px #ff00aa,
+        0 0 40px #ff00aa;
+}
+
+.about {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 5rem 8%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    /* filter: brightness(55%); */
+}
+
+.about-img,
+.about-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.about-img img{
+    width: 35vw;
+    animation: floatImage 4s ease-in-out infinite;
+    border-radius: 80%;
+
+}
+
+.heading{
+    text-align: center;
+    font-size: 4.5rem;
+    text-align: left;
+    line-height: 1.2;
+}
+
+
+.about-content h3{
+    font-size: 2.3rem;
+    color: salmon;
+
+}
+
+.about-content p{
+    font-size: 2rem;
+    margin: 2rem 0 3rem;
+}
+
+/* PROJECT SECTION */
+.project {
+    position: relative;
+    width: 100%;
+    padding: 6rem 5% 4rem;
+    overflow: hidden;
+}
+
+/* Background video */
+.project .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    filter: brightness(45%);
+}
+
+/* Dark overlay */
+.project::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* Heading */
+.project h2 {
+    margin-bottom: 5rem;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+/* Container */
+.project-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Each project box */
+.project-container .project-box {
+    flex: 1 1 20rem;
+    background: linear-gradient(135deg, #0b40bb, #06ff06);
+    padding: 3rem 2.5rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.4s ease;
+    color: white;
+    opacity: 0.5;
+}
+
+/* Hover effect */
+.project-container .project-box:hover {
+    border-color: #38bdf8;
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    opacity: 1;
+}
+
+/* Icons */
+.project-box i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #38bdf8;
+}
+
+/* Titles */
+.project-box h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Description */
+.project-box p {
+    font-size: 1rem;
+    margin: 1rem 0 2.5rem;
+    opacity: 0.9;
+}
+
+/* Project image */
+.project-img img {
+    max-width: 100%;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: block;
+}
+
+/* Portfolio Section */
+.portfolio {
+    position: relative;
+    width: 100%;
+    padding: 6rem 5%;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Background video */
+.portfolio .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    filter: brightness(50%);
+}
+
+/* Heading */
+.portfolio .heading {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Container grid */
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.portfolio-container:hover{
+    opacity: 1;
+}
+
+/* 3D Tilt Effect */
+.tilt-card {
+    perspective: 1000px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tilt-card:hover {
+    transform: rotateY(12deg) rotateX(10deg) scale(1.05);
+    box-shadow: 0 30px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Portfolio card box */
+.portfolio-box {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    width: 320px;
+    height: 220px;
+    background: #1e293b;
+}
+
+/* Image styling */
+.portfolio-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+/* Image zoom on hover */
+.portfolio-box:hover img {
+    transform: scale(1.15);
+    filter: brightness(65%);
+}
+
+/* Overlay layer */
+.portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.8)
+    );
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.5s ease;
+}
+
+/* Show overlay on hover */
+.portfolio-box:hover .portfolio-layer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Title */
+.portfolio-layer h4 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Description */
+.portfolio-layer p {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+/* Icon */
+.portfolio-layer a i {
+    font-size: 1.4rem;
+    color: #38bdf8; /* cyan accent */
+    transition: 0.3s ease;
+}
+
+.portfolio-layer a i:hover {
+    transform: scale(1.2);
+}
+
+.contact{
+    position: relative;
+}
+.contact h2{
+    margin-bottom: 3rem;
+}
+
+.contact video{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.contact form{
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact form .input-box{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea{
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: rgb(9, 14, 54);
+    background: black;
+    border-radius: .8rem;
+    margin: .9rem 0;
+}
+
+.contact form .input-box input{
+    width: 48%;
+}
+
+.contact form textarea{
+    resize: none;
+}
+
+.contact form .btncon{
+    background-color: greenyellow;
+    margin: 1rem;
+    border-radius: 5rem;
+    padding: 1rem;
+    color: teal;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2remr 9%;
+    background: rgb(255, 255, 255) ;
+}
+
+.footer-text p{
+    font-size: 1.5rem;
+}
+
+.foot-iconTop a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    background: sandybrown;
+    border-radius: .6rem;
+    transition: .2s ease;
+}
+
+.foot-iconTop a:hover{
+    box-shadow: 0 0 1vh yellowgreen; 
+}
+
+.foot-iconTop a i{
+    font-size: 1.5rem;
+    color: red;
+}
+
+@media (max-width: 1200px) {
+    html{
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px){
+    .header{
+        padding: 2rem 3%;
+    }
+    section{
+        padding: 10rem 3% 2rem;
+    }
+
+    .project{
+        padding-bottom: 7rem;
+    }
+
+    .portfolio{
+        padding-bottom: 7rem;
+    }
+
+    .contact{
+        min-height: auto;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+
+@media (max-width: 768px){
+    #menu-icon{
+        display: block;
+    }
+
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: palevioletred;
+        border-top: 0.1rem solid yellowgreen;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+        display: none;
+    }
+
+    .navbar.active{
+        display: block;
+
+    }
+
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .home{
+        flex-direction: column;
+    }
+
+    .home-content h4{
+        font-size: 2.6rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .home-pic img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .about{
+        flex-direction: column-reverse;
+    }
+
+    .about img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .project h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio h2{
+        margin-bottom: 3rem;
+    }
+
+    .portfolio-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 617px) {
+    .portfolio-container{
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+@media (max-width: 450px){
+    html{
+        font-size: 50%;
+    }
+
+    .contact form .input-box input{
+        width: 100%;
+    }   
+}
+
+@media (max-width: 365px){
+    .home-pic img {
+        width: 90vw;
+    }
+
+    .about-img img{
+        width: 90vw;
+    }
+
+    .footer{
+        flex-direction: column-reverse;
+    }
+
+    .footer p {
+        text-align: center;
+        margin-top: 2rem;
+    }
+}
